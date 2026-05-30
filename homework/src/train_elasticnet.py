@@ -8,7 +8,6 @@
 #    (0.5, 0.5), (0.2, 0.2), (0.1, 0.1), (0.1, 0.05), (0.3, 0.2)
 #
 
-
 # importacion de librerias
 from sklearn.linear_model import ElasticNet
 
@@ -22,11 +21,10 @@ x_train, x_test, y_train, y_test = prepare_data()
 # entrenar el modelo
 estimator = ElasticNet(alpha=0.5, l1_ratio=0.5, random_state=12345)
 estimator.fit(x_train, y_train)
-
 save_model(estimator)
 
+print()
 print(estimator, ":", sep="")
-
 
 mse, mae, r2 = calculate_metrics(x_train, y_train, estimator)
 print_metrics(mse, mae, r2, title="Metricas de entrenamiento:")
